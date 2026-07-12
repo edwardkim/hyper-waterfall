@@ -477,7 +477,7 @@ Hyper-Waterfall은 워터폴의 계획·검증 규율과 애자일의 빠른 tas
 > 이 방법론은 [`edwardkim/rhwp`](https://github.com/edwardkim/rhwp)와 [`postmelee/alhangeul-macos`](https://github.com/postmelee/alhangeul-macos) 같은 실제 프로젝트 경험을 바탕으로 정제되었습니다.
 > 본 방법론의 핵심 철학은 [edwardkim/rhwp · hyper_waterfall.md](https://github.com/edwardkim/rhwp/blob/main/mydocs/manual/hyper_waterfall.md)에 가장 완성된 형태로 정리되어 있습니다. 본 저장소는 그 방법론을 다른 저장소에 손쉽게 적용할 수 있게 모듈화한 프레임워크입니다.
 
-방법론을 먼저 이해하려면 아래 [핵심 구조](#핵심-구조)부터, 우리 저장소의 차별점만 보려면 [`postmelee/hyper-waterfall`: 방법론을 하네스로](#postmeleehyper-waterfall-방법론을-하네스로)로 점프하세요.
+방법론을 먼저 이해하려면 아래 [핵심 구조](#핵심-구조)부터, 우리 저장소의 차별점만 보려면 [`postmelee/hyper-waterfall`: 방법론을 재사용 가능한 하네스로](#postmeleehyper-waterfall-방법론을-재사용-가능한-하네스로)로 점프하세요.
 
 ## 핵심 구조
 
