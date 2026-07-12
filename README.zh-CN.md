@@ -2,6 +2,10 @@
 
 [English](README.md) | [한국어](README.ko.md) | 简体中文
 
+[![GitHub Release](https://img.shields.io/github/v/release/postmelee/hyper-waterfall?logo=github&style=flat-square)](https://github.com/postmelee/hyper-waterfall/releases)
+[![npm version](https://img.shields.io/npm/v/hyper-waterfall?logo=npm&style=flat-square)](https://www.npmjs.com/package/hyper-waterfall)
+[![License: MIT](https://img.shields.io/github/license/postmelee/hyper-waterfall?style=flat-square)](LICENSE)
+
 <!-- ![Hyper-Waterfall overview](docs/assets/hyper-waterfall.png) -->
 
 ## 从短暂会话到持久项目记忆
