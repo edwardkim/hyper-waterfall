@@ -2,7 +2,7 @@
 
 English | [한국어](README.ko.md) | [简体中文](README.zh-CN.md)
 
-![Hyper-Waterfall overview](docs/assets/hyper-waterfall.png)
+<!-- ![Hyper-Waterfall overview](docs/assets/hyper-waterfall.png) -->
 
 ## From Ephemeral Sessions to Persistent Project Memory
 

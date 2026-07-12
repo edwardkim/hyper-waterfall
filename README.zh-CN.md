@@ -2,7 +2,7 @@
 
 [English](README.md) | [한국어](README.ko.md) | 简体中文
 
-![Hyper-Waterfall overview](docs/assets/hyper-waterfall.png)
+<!-- ![Hyper-Waterfall overview](docs/assets/hyper-waterfall.png) -->
 
 ## 从短暂会话到持久项目记忆
 

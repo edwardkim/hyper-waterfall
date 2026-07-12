@@ -2,7 +2,7 @@
 
 [English](README.md) | 한국어 | [简体中文](README.zh-CN.md)
 
-![Hyper-Waterfall overview](docs/assets/hyper-waterfall.png)
+<!-- ![Hyper-Waterfall overview](docs/assets/hyper-waterfall.png) -->
 
 ## 일시적인 세션에서 지속되는 프로젝트 기억으로
 
