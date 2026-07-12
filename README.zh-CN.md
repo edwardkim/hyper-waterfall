@@ -4,42 +4,32 @@
 
 ![Hyper-Waterfall overview](docs/assets/hyper-waterfall.png)
 
-## 将 AI 结对编程转化为可追踪、可审批开发流程的方法论
+## 从短暂会话到持久项目记忆
 
-Hyper-Waterfall 不是把任务丢给 AI 然后说“直接做吧”的方式。它把 AI 的执行速度放进人的计划、审批、验证和报告纪律之中，让快速实现和可追踪开发流程同时成立。
+Hyper-Waterfall 是一种**由人治理的 AI 编码工作流**，它把短暂的会话上下文提炼为持久项目记忆，使工作可追踪、可审查、可恢复。
 
-核心很简单：**AI 负责执行，人负责决定方向。** 工作会经过 Issue、branch、计划书、Stage 报告、最终报告和 PR，每个阶段边界都有审批门。
+它不会把任务上下文困在临时聊天中，而是定期提取每个 task 中真正重要的内容——意图、范围、计划、决策、实现进度和验证依据——并记录为 Issue、计划书、Stage 报告、commit、PR 等结构化项目产出物。
+
+这些产出物不是被动日志。它们共同构成共享的项目记忆，帮助新会话、agent 或贡献者无需重放聊天记录，就能恢复关键上下文并从文档化基线继续工作。
+
+> **会话会结束，项目会记住。**
+>
+> 每项工作都会成为文档，每份文档都会成为下一项工作的上下文。
 
 | Hyper-Waterfall 核心 | 含义 |
 |---|---|
-| 人保留决策权 | 方向、范围、质量和架构决策始终由人掌握。 |
-| 审批门 | 在源码修改、阶段切换、最终报告、PR 创建之前由人确认。 |
-| 工作记忆外部化 | 上下文不只留在聊天里，而是沉淀到 Issue、计划书、报告、PR 和 commit log。 |
-| 分阶段执行 | 大任务被拆成 Stage，每个 Stage 都经过验证和报告。 |
-| 可恢复流程 | 新的 AI 会话或新贡献者可以只读仓库文档就从同一上下文继续。 |
+| 上下文提炼 | 从临时会话中提取关键任务上下文，并记录为结构化项目产出物。 |
+| 持久项目记忆 | 意图、决策、进度和验证依据在会话结束后仍然保留。 |
+| 人类治理 | 方向、范围、架构和质量的决策权由人掌握；AI 在明确边界内执行。 |
+| 分阶段执行 | 大任务被拆成可审查的 Stage，每个 Stage 都有验证和完成报告。 |
+| 可恢复工作 | 新会话、agent 和贡献者可以从项目产出物中恢复关键上下文并继续工作。 |
+
+Hyper-Waterfall 建议使用 **`1 Issue = 1 Task = 1 Branch = 1 Session`** 来让会话保持小而集中。关键上下文已经提炼到项目中，因此会话可以干净地结束。
 
 > [!IMPORTANT]
 > **可以把执行交给 AI，但不要把决策权交出去。**
 >
-> Hyper-Waterfall 不是让 AI 神奇地做到一切的工具，而是在 AI 快速工作时防止人失去方向的工作轨道。
-
-## 为什么选择 Hyper-Waterfall？
-
-AI 的弱点不是执行力不足，而是可能丢失上下文，或者在错误方向上高速前进。Hyper-Waterfall 把这个弱点转化为工作约束，并把 AI 的速度放进人可以审查的开发流程里。
-
-| 强点 | 含义 |
-|---|---|
-| 知识资产化 | 工作意图、计划、验证结果、决策依据会留在 `mydocs/`、Issue、PR、commit log 中，成为下一次任务的输入。 |
-| 风险提前发现 | 在执行计划书、实现计划书、Stage 完成报告边界都由人确认方向，减少大实现完成后才发现方向错误的情况。 |
-| 自动化角色分工 | 人决定方向、优先级、质量和架构，AI 承担探索、实现、验证、文档化等重复性工作。 |
-| 轻量上下文 | 以 `1 Issue = 1 Task = 1 Branch = 1 Session` 保持会话很小，把记忆留在仓库文档里。 |
-| 提示指南对齐 | 清晰目标、充分上下文、输出格式、验证标准、停止条件都由仓库结构和模板固定。 |
-
-Hyper-Waterfall 是一种方法论 harness，它把 AI 编码绑定到 Issue、branch、计划书、Stage 报告、最终报告和 PR，从而形成可追踪、可审批的开发流程。
-
-它不会让 AI 立刻改文件，而是先文档化任务目的、范围和验证标准。在源码修改、阶段切换、最终报告、PR 创建之前，都有任务指示者的审批门。
-
-结果是，所有工作都会被文档化，决策和验证结果会留在仓库里。即使聊天上下文消失，也能重新追踪任务意图和进度；其他 AI 会话或其他工作者也能在相同上下文中接手。
+> Hyper-Waterfall 不是让 AI 神奇地做到一切的工具。它提供清晰轨道，让 AI 快速行动，同时避免人失去方向或项目上下文。
 
 ## 快速开始
 
@@ -63,7 +53,7 @@ Hyper-Waterfall 是一种方法论 harness，它把 AI 编码绑定到 Issue、b
 如果附带了项目简报或需求草案，请只把它作为上下文参考。不要在应用阶段创建产品计划、架构文档或源代码。应用完成后，请帮我把第一个产品任务注册为单独的 GitHub Issue。
 ```
 
-在两种路径中，AI 都会先阅读 [`docs/agent-entrypoint.zh-CN.md`](docs/agent-entrypoint.zh-CN.md)，并按应用流程执行。在修改源码前，它必须先请求任务指示者批准。
+在两种路径中，AI 都会先阅读 [`docs/agent-entrypoint.zh-CN.md`](docs/agent-entrypoint.zh-CN.md)，并按应用流程执行。在修改源码前，它必须先报告建议范围并获得任务指示者批准。
 
 | AI 需要先报告的内容 | 内容 |
 |---|---|
@@ -100,10 +90,11 @@ hyper-waterfall init --repo . --locale zh-CN --dry-run
 
 导入后，AI 会按照 Hyper-Waterfall 方式推进工作。第一次使用时，你可以直接用自然语言告诉 AI，例如 `"请实现这个功能"`。
 
-> 任何人都可以把 Hyper-Waterfall 应用到 GitHub 仓库，并让 Codex、Claude Code 等多个 AI 编码 agent 在同一套纪律下工作。
+> 任何人都可以把 Hyper-Waterfall 应用到 GitHub 仓库，并让 Codex、Claude Code 等多个 AI 编码 agent 在同一套纪律和共享上下文下工作。
 
 ## 进一步了解 Hyper-Waterfall
 
+[为什么选择 Hyper-Waterfall？](#为什么选择-hyper-waterfall) ·
 [适用场景](#适用场景) ·
 [与传统 AI 编码方式比较](#与传统-ai-编码方式比较) ·
 [会发生什么变化](#会发生什么变化) ·
@@ -111,121 +102,150 @@ hyper-waterfall init --repo . --locale zh-CN --dry-run
 [导入后的工作流](#导入后的工作流) ·
 [生成的结构](#应用后的目标仓库结构生成的结构)
 
+## 为什么选择 Hyper-Waterfall？
+
+AI 编码 agent 有两个结构性弱点：
+
+- 会话上下文是临时的；随着对话变长或工具变化，它会越来越不可靠。
+- 即使方向错误，AI 也可能自信地继续执行。
+
+Hyper-Waterfall 把这两个弱点转化为工作流约束。它把工作记忆提炼为项目产出物，并把 AI 执行放在人的决策门之内。
+
+| 问题 | Hyper-Waterfall 约束 | 结果 |
+|---|---|---|
+| 上下文随会话结束而消失 | 把意图、决策、进度和验证记录为结构化产出物 | 持久项目记忆 |
+| 长会话变得嘈杂 | 推荐模型：`1 Issue = 1 Task = 1 Branch = 1 Session` | 小而集中的上下文 |
+| AI 可能在错误方向上快速执行 | 计划书和 Stage 边界需要人工审查 | 更早发现方向错误 |
+| 每个 agent 都自行发明流程 | 共享规则、SKILL、manual 和 template | agent 之间执行一致 |
+| reviewer 必须从聊天重建历史 | 报告、commit、PR 保留理由和依据 | 工作可追踪、可审查 |
+
+结果不只是一个审批驱动的编码工具，而是一套工作流：在人保留关键决策权的同时，把临时 AI 执行转化为持久、可复用的项目知识。
+
 ## 适用场景
 
-Hyper-Waterfall 的重点是在 AI 快速修改代码时，让人不失去控制权和可追踪性。
+Hyper-Waterfall 面向真实源码变更：即使工作跨越单次 AI 会话，也必须保持可理解、可恢复。
 
 | 适合的情况 | 不适合的情况 |
 |---|---|
-| 你会让 AI 编码工具修改真实源码，但希望变更范围和质量标准由人批准。 | 一两行修改，计划书和报告成本比变更本身还大。 |
-| 工作需要跨多天、多会话、多 agent 继续推进。 | 一次性原型，比可追踪性更看重即时试验。 |
-| PR review 时需要马上看出改了什么、为什么改、如何验证。 | 不使用 GitHub Issue、branch、PR 流程的仓库。 |
-| 想把大任务按 Issue、branch、Stage 拆分，尽早发现方向错误。 | 人不打算审查结果，只想直接接受 AI 输出。 |
-| 新贡献者或新 AI 会话需要只读仓库文档就能在同一上下文重启。 | 个人实验，不重视交接或可恢复性。 |
+| 工作需要跨多天、会话、agent 或贡献者继续推进。 | 一两行修改，计划书和报告成本比变更本身还大。 |
+| 希望意图、决策、进度和验证成为可复用的项目上下文。 | 一次性原型，比可追踪性更看重即时试验。 |
+| 让 AI 编码工具修改真实源码，但范围和质量必须由人掌握。 | 人不打算审查结果，只想直接接受 AI 输出。 |
+| PR review 时需要马上看出改了什么、为什么改、如何验证。 | 不重视交接或可恢复性的个人实验。 |
+| 想按 Issue、branch、Stage 拆分大任务并尽早发现方向错误。 | 不使用当前实现所假定的 GitHub Issue、branch、PR 流程。 |
+| 新贡献者或 AI 会话必须只靠项目产出物重新开始。 | 保存决策和工作历史没有价值的任务。 |
 
-> 它最适合让 AI 实际修改源码，同时人必须持续控制方向和质量的工作。相反，如果即时试验比可追踪性更重要，它可能过重。
+> 当 AI 承担大量实现，而人必须保留决策权、工程上下文和可审查性时，Hyper-Waterfall 最有价值。相反，如果即时试验比连续性更重要，它可能过重。
 
 ## 与传统 AI 编码方式比较
 
-核心不是把决策权交给 AI，而是把 AI 的执行速度放进人的审批、审查和文档化纪律中。人决定方向和质量，AI 快速执行分析、实现、验证和文档化。
+核心差异不在于 AI 是否在执行命令前请求权限，而在于会话消失后，项目是否仍能保存、审查并复用工作背后的上下文。
 
-> 差异不在于是否使用 AI，而在于 AI 在什么边界内工作。普通 AI 编码依赖对话流，Hyper-Waterfall 把任务单位、审批点和产出格式固定在仓库里。
+普通 AI 编码常依赖一次对话的流向。Hyper-Waterfall 在项目层面固定任务单位、决策门、产出格式和上下文交接规则。
 
 | 传统 AI 编码方式 | 应用 Hyper-Waterfall 后 |
 |---|---|
-| 说“做这个”，AI 立刻改文件。 | 先用 Issue 和执行计划书整理任务目的、范围、验证标准。 |
-| 工作范围在对话中不断摇摆。 | 在实现计划书中按 Stage 拆分，只在批准范围内推进。 |
-| 事后很难追踪 AI 为什么改了哪些文件。 | 通过阶段完成报告和 commit 记录变更原因、产出物、验证结果。 |
-| 聊天变长后上下文变模糊。 | 将工作记忆外部化到 `mydocs/`、Issue、PR、commit log。 |
-| 大实现完成后才发现方向错误。 | 在执行计划书、实现计划书、Stage 完成边界由任务指示者批准或要求修正。 |
-| PR review 时需要重新翻聊天记录。 | 只看 PR 和报告就能确认改了什么、为什么改、如何验证。 |
+| 说“做这个”，AI 立刻改文件。 | 先用 Issue 和 task plan 定义目的、范围、验证标准。 |
+| 工作范围在对话中不断摇摆。 | implementation plan 按 Stage 拆分，只在批准范围内推进。 |
+| 任务上下文困在临时聊天会话中。 | 把关键上下文提炼到 `mydocs/`、Issue、PR、commit history。 |
+| 事后很难追踪 AI 为什么改了哪些文件。 | Stage 报告和 commit 记录理由、产出物、验证结果。 |
+| 大实现完成后才发现方向错误。 | 在 task plan、implementation plan、Stage 边界批准或纠正。 |
+| 新会话或 agent 每次都要手动说明。 | 项目产出物提供关键上下文和下一步行动。 |
+| PR review 时需要重新翻聊天记录。 | PR 和报告直接展示改了什么、为什么改、如何验证。 |
 
-人类任务指示者保留方向、质量、架构决策的完整所有权，而 AI 以人单独无法达到的速度和规模执行实现。
+人类任务指示者保留方向、优先级、架构和质量的决策权。AI 快速执行探索、草拟、实现、验证和文档化。
 
 > [!IMPORTANT]
-> **核心差异：人绝不停止思考。**
+> **核心差异：人不会停止思考，项目也不依赖某个会话记住一切。**
 
 ## 会发生什么变化
 
-1. **AI 不会随意改代码。**
-   源码修改前要经过计划书和审批门，因此任务指示者始终控制方向。
+1. **会话上下文变成持久项目记忆。**
+   意图、范围、决策、进度和验证依据保留在 `mydocs/`、Issue、PR、commit history 中。新会话、agent 或贡献者无需重放聊天记录即可继续。
 
-2. **人不会失去控制权。**
-   源码修改、阶段切换、最终报告、PR 创建之前都有审批门。AI 执行，但方向和质量决策由人掌握。
+2. **“做到哪里了？”有文档化答案。**
+   Issue、今日待办、task plan、implementation plan、Stage 报告、最终报告、commit、PR 构成可恢复的任务时间线。
 
-3. **不用再从聊天记录里找“做到哪里了”。**
-   Issue、今日待办、执行计划书、阶段报告、最终报告、PR 会自动构成工作时间线。
+3. **会话保持小而集中。**
+   推荐运用方式是 `1 Issue = 1 Task = 1 Branch = 1 Session`。task 结束后关闭会话；下一项工作在干净的新会话中按需读取文档化上下文。
 
-4. **聊天消失，工作记忆仍然留下。**
-   意图、决策、验证结果会留在 `mydocs/`、Issue、PR、commit log 中。新会话、新 agent、新贡献者都能从同一上下文重启。
+4. **AI 不会随意改代码。**
+   源码修改前要经过计划书和人的决策门，因此任务指示者始终控制方向和范围。
 
-5. **按 task 工作，让上下文保持小而清晰。**
-   推荐运用方式是 `1 Issue = 1 Task = 1 Branch = 1 Session`。task 结束，会话也结束；下一个 Issue 在干净的新会话中开始。
+5. **人不会失去决策权。**
+   源码修改、Stage 切换、最终报告、PR 创建之前都有 gate。AI 执行，但方向、架构和质量由人判断。
 
 6. **可以并行运行多个 AI 会话。**
    独立 Issue 可以分别在 `local/task{N}` branch 或分离 worktree 中推进。上下文和变更范围不会混在一起。
 
 7. **PR review 更容易。**
-   PR 会整理改了什么、为什么改、经过哪些 Stage、做了哪些验证。reviewer 看仓库产出物，而不是聊天记录。
+   PR 会整理改了什么、为什么改、经过哪些 Stage、做了哪些验证。reviewer 查看项目产出物，而不是重建聊天记录。
 
-8. **减少大实现完成后才发现方向错误的情况。**
-   执行计划书、实现计划书、Stage 完成报告都会成为由人审查的质量门。
+8. **更早发现方向错误。**
+   在错误方向上积累大量工作前，task plan、implementation plan、Stage 完成报告会作为人工审查的质量门。
 
-9. **保留 vibe coding 的速度，同时恢复工程纪律。**
-   可以快速构建，同时能解释构建了什么、追踪哪里出错、随时交接。
+9. **不牺牲 AI 速度也能保留工程纪律。**
+   AI 快速草拟计划、测试、报告和实现，工作流保留依据、理由和交接上下文。
 
-10. **AI 编码不再是“vibe”，而是可追踪的开发流程。**
-    所有工作通过 Issue、branch、文档、commit、PR 连接起来，之后可以审查和交接。
+10. **AI 编码从一次性对话变成可复用的项目流程。**
+    所有工作通过 Issue、branch、文档、commit、PR 连接起来，可追踪、审查、恢复，并作为后续工作的上下文。
 
 ## Hyper-Waterfall 的强点
 
-AI 有两个结构性弱点。
+### 1. 把会话上下文提炼为持久项目记忆 — 知识资产化
 
-- 会话变长或工具改变时，它会丢失上下文。
-- 即使方向错了，也可能自信地继续执行。
+- 任务意图、约束、计划、决策、逐 Stage 进度、验证结果和故障排查知识会积累为结构化项目产出物。
+- 这些产出物不是被动记录，而是**下一项工作的输入**。未来会话和贡献者可以建立在过去工作之上，而不是从零重建。
+- 无需把原始对话作为项目的 source of truth，也能保存会话中真正重要的部分。
 
-本仓库把这些弱点转化为工作约束，并在下面四个轴上创造用户可以立即感受到的收益。
+> `mydocs/` 像一个专门保存工作历史的 vault。它按流程规定的格式积累任务意图、计划、决策、验证、产出物、反馈和故障排查。
 
-### 1. 每项工作都变成文档，文档又变成下一次工作的提示 — 知识资产化
+### 2. 在方向错误变成大失败前通过 gate 发现 — 风险控制
 
-- 工作意图、计划、各阶段验证结果、决策依据都会作为 markdown 文件沉淀到 `mydocs/`。它们不只是记录，而是**下一次工作的 input**。模型开始新 task 时，会读取同一仓库里的过去计划书、报告和决策记录，并在其上继续工作。
-- 继续工作时，不依赖聊天历史，而是只用仓库产出物就能恢复上下文。新贡献者或新 AI 会话加入时，也能从同一个起点开始。
+- 工作遵循 `Issue -> branch -> task plan -> implementation plan -> Stage implementation, verification, and report -> final report -> Open PR`。
+- 人会在 task plan、implementation plan、每个 Stage 边界和最终报告处审查。
+- Stage 验证失败就在该 Stage 内恢复；范围改变则更新计划并重新批准。
+- 这能提前发现错误目标、错误范围、错误架构方向等仅靠代码审查难以及早识别的语义错误。
 
-> 这和把 Obsidian vault 连接到 LLM、把个人知识库作为上下文使用的结构相同。差异在于 vault 的性质。Obsidian 收集一般知识和想法，而 `mydocs/` 是**专门面向工作历史的 vault**，按任务自动累积意图、计划、验证、产出物、故障排查。流程会强制执行，所以不容易遗漏，也保持一致。
+### 3. 不只是“拜托 AI 做好”，而是让好工作在结构上更可能出现 — 自动化角色分工
 
-### 2. 在大事故发生前，通过 gate 发现方向错误 — 风险
+- 任务指示者保留**方向、优先级、架构和质量决策**的责任。
+- AI 承担探索、草拟、实现、测试、报告和 PR 正文准备等重复执行。
+- SKILL 定义每一步要做什么、必须留下什么产出物、何时停止并把控制权交还给人。
+- 中央 template 固定预期输出结构，避免 agent 每次重新发明计划书、报告或验证格式。
 
-- 工作遵循 `Issue -> branch -> task plan -> implementation plan -> Stage implementation, verification, and report -> final report -> Open PR` 顺序，并在每个 gate 获得任务指示者批准。
-- 不是等大实现完成后才意识到“方向错了”，而是在**执行计划书、实现计划书、每个 Stage 边界提前发现，因此沉没成本更小。**
-- 如果阶段验证失败，就在该阶段内恢复；如果 scope 改变，就更新计划书并重新获得批准。
+### 4. 会话保持小，记忆留在项目中 — 轻量上下文
 
-### 3. 不是“拜托 AI 做好”，而是“让 AI 在结构上更容易做好” — 自动化角色分工
+- Hyper-Waterfall 不把所有项目历史不断堆进一个 AI 会话。推荐模型中，一个会话负责一个 Issue，并在 task 结束时关闭。
+- 每个会话只读取当前 Issue、相关计划书、Stage 报告、项目文档和代码。
+- 过去决策可从项目产出物按需读取，不必污染每个 prompt，也不依赖越来越模糊的长对话。
+- 变更范围不冲突的独立 Issue 可以在不同 branch 或 worktree 中并行推进。
 
-- 任务指示者始终负责**方向、优先级、架构、质量决策**，AI 承担探索、草案、实现、测试、报告、PR 正文草拟等高重复工作。所有阶段切换都需要任务指示者明确批准。
-- 本仓库在**运营层面自动化**这种分工。task 管理规则被拆成 SKILL，让 AI 自然遵守每一步要做什么、留下什么产出、何时停下并交回给人。
-- 工作文档格式会自然满足 OpenAI 和 Anthropic 官方提示指南的核心。用户不需要单独学习提示工程，AI 就会在一致的中央模板、明确上下文、阶段性思考、固定输出格式中工作。
-
-### 4. 以 task 为单位打开和关闭会话 — 轻量上下文
-
-- Hyper-Waterfall 不是把所有工作上下文一直堆在一个 AI 会话中。推荐运用方式是 **`1 Issue = 1 Task = 1 Branch = 1 Session`**。一个会话负责一个 Issue，该 task 结束时，会话也结束。
-- 每个会话只读取当前 Issue、执行计划书、实现计划书、阶段报告和相关代码。旧对话或其他 task 的决定不会污染当前判断，因此**上下文保持小而清晰。**
-- task 结束后，结果不是留在聊天里，而是留在 `mydocs/`、Issue、PR、commit log 中。下一个 task 即使从新会话开始，也能读仓库文档并在同一上下文上出发。
-- 互相独立的 Issue 可以在多个 AI 会话中通过不同 `local/task{N}` branch 或分离 worktree 并行推进。但如果任务会碰同一文件或同一架构决策，应先确定顺序。
-
-> AI 会话不一定越长越聪明，往往会变得更模糊。Hyper-Waterfall 让会话保持短小，把记忆留在仓库里。
+> AI 会话不一定越长越聪明，反而可能失去焦点。Hyper-Waterfall 保持会话短小，把记忆留在项目中。
 
 ### 5. 结果
 
-这四点不是彼此独立的功能，而是一个工作循环。工作留下文档，方向错误在 gate 被过滤，人和 AI 的角色被分离，会话按 task 保持小而清晰。
+这些强点形成一个循环：
 
-结果是，AI 编码不再是一段长聊天，而是仓库中可追踪、可审查、可恢复的开发流程。
+```text
+临时会话上下文
+        ↓ 提炼
+结构化项目产出物
+        ↓ 积累
+持久项目记忆
+        ↓ 恢复
+下一个会话、agent、贡献者或 task
+```
+
+同时，人的决策门让 AI 执行持续对齐项目方向。
+
+结果是，AI 编码成为一种拥有持久项目记忆、可跨会话、agent 和贡献者追踪、审查、恢复的由人治理工作流。
 
 > [!NOTE]
-> 这个结构与 OpenAI 和 Anthropic 官方提示指南强调的清晰指令、充分上下文、输出格式约束、验证标准、长期工作记忆、agentic workflow 控制原则一致。详细映射见 [提示指南对齐](#提示指南对齐)。
+> 这个结构与 OpenAI 和 Anthropic 官方提示指南强调的清晰指令、充分上下文、输出格式约束、验证标准、停止条件、长期工作记忆、agentic workflow 控制原则一致。详细映射见 [提示指南对齐](#提示指南对齐)。
 
 ## 导入后的工作流
 
-Hyper-Waterfall 以 **task** 为单位推进工作。
+Hyper-Waterfall 以 **task** 为单位工作。每个 task 在产出代码的同时，也提炼理解、验证和继续该工作所需的上下文。
 
 ### Task 推进步骤
 
@@ -244,7 +264,7 @@ Hyper-Waterfall 以 **task** 为单位推进工作。
 10. 更新今日待办状态
 ```
 
-> 每个 `[approval]` 点都是质量门。代码 review 单独抓不到的**方向性错误**，会在文档 review 中被抓到。
+> 每个 `[approval]` 点既是决策门，也是上下文提炼边界。在继续前审查方向错误并记录当前状态。
 
 详细流程以 [task workflow manual](templates/locales/zh-CN/mydocs/manual/task_workflow_guide.md) 为准。branch 和 PR 发布流程见 [Git workflow manual](templates/locales/zh-CN/mydocs/manual/git_workflow_guide.md)。
 
@@ -322,6 +342,19 @@ mydocs/
 └── pr/                                 <- 外部 PR review 记录
 ```
 
+这些文档共同保存持久工作历史的不同部分：
+
+| 区域 | 保存的上下文 |
+|---|---|
+| `orders/` | 当前 task 状态和下一步行动 |
+| `plans/` | 意图、范围、决策、实现顺序、验证标准 |
+| `working/` | Stage 进度、产出物、依据、残余风险、下一阶段上下文 |
+| `report/` | 最终综合、验收状态、交接上下文 |
+| `feedback/` | 人工审查、修正意见、判断依据 |
+| `tech/` | 尚未提升为正式文档的调查、方案和设计推理 |
+| `troubleshootings/` | 已知失败模式、诊断和恢复知识 |
+| `pr/` | 外部贡献审查依据和建议 |
+
 文件夹角色、文档文件名规则和产出物输出格式都在 [document structure manual](templates/locales/zh-CN/mydocs/manual/document_structure_guide.md) 中定义。每个文件夹的详细编写规则以该文件夹的 `README.md` 为准。
 
 | 区域 | 策略 |
@@ -375,8 +408,8 @@ your-repo/
 | `.agents/skills`, `.claude/skills` | 通过符号链接让 Codex 和 Claude Code 读取同一份 SKILL 文本。 |
 | `mydocs/_templates/` | 固定计划书、报告、反馈、技术调查、故障排查、外部 PR review 的输出格式。 |
 | `mydocs/manual/` | 存放重复适用的运营政策和流程。 |
-| `mydocs/orders/`, `plans/`, `working/`, `report/` | 保存每日 task 状态、计划书、Stage 报告、最终报告。 |
-| `mydocs/feedback/`, `tech/`, `troubleshootings/`, `pr/` | 保存反馈、调查、故障排查、外部 PR review 记录。 |
+| `mydocs/orders/`, `plans/`, `working/`, `report/` | 保存当前 task 状态、计划、Stage 进度、验证依据和最终交接上下文。 |
+| `mydocs/feedback/`, `tech/`, `troubleshootings/`, `pr/` | 保存人的决策、调查、恢复知识和外部 PR review 记录。 |
 
 应用仓库中的 `.agents/skills` 和 `.claude/skills` 符号链接结构遵循 [Agent Skills location policy](templates/locales/zh-CN/mydocs/manual/document_structure_guide.md)。`.hyper-waterfall/version.json` 和 manifest 基准 update 流程整理在 [distribution manifest and version record policy](templates/locales/zh-CN/mydocs/manual/document_structure_guide.md)、[`docs/lifecycle/update.zh-CN.md`](docs/lifecycle/update.zh-CN.md)、[`docs/lifecycle/update_pr.zh-CN.md`](docs/lifecycle/update_pr.zh-CN.md) 中。
 
@@ -433,7 +466,7 @@ Homebrew、Docker、Codex plugin、Claude plugin 等其他发布渠道，也只�
 
 **Part 2. postmelee/hyper-waterfall**
 
-1. [postmelee/hyper-waterfall：将方法论做成 harness](#postmeleehyper-waterfall将方法论做成-harness)
+1. [postmelee/hyper-waterfall：将方法论做成可复用 harness](#postmeleehyper-waterfall将方法论做成可复用-harness)
 2. [活的示例 — 自己跟着看](#活的示例--自己跟着看)
 3. [设计原则](#设计原则)
 4. [提示指南对齐](#提示指南对齐)
@@ -445,12 +478,12 @@ Homebrew、Docker、Codex plugin、Claude plugin 等其他发布渠道，也只�
 
 ### 宏观 Waterfall + 微观 Agile：AI 让两者可以同时成立
 
-这是 AI 出现之前无法成立的方法论：同时拥有 waterfall 的纪律和 agile 的速度。
+Hyper-Waterfall 把 waterfall 的计划与验证纪律和 agile 的快速 task 反馈循环结合起来。AI 降低文档化、实现、验证和报告成本，使两者能在同一流程中共存。
 
 > 这个方法论基于 [`edwardkim/rhwp`](https://github.com/edwardkim/rhwp) 和 [`postmelee/alhangeul-macos`](https://github.com/postmelee/alhangeul-macos) 等真实项目经验被提炼出来。
 > 其核心哲学最完整地整理在 [edwardkim/rhwp · hyper_waterfall.md](https://github.com/edwardkim/rhwp/blob/main/mydocs/manual/hyper_waterfall.md)。本仓库把该方法论模块化，使其可以轻松应用到其他仓库。
 
-如果想先理解方法论，请从 [核心结构](#核心结构) 开始；如果只想看本仓库的差异点，请跳到 [postmelee/hyper-waterfall：将方法论做成 harness](#postmeleehyper-waterfall将方法论做成-harness)。
+如果想先理解方法论，请从 [核心结构](#核心结构) 开始；如果只想看本仓库的差异点，请跳到 [postmelee/hyper-waterfall：将方法论做成可复用 harness](#postmeleehyper-waterfall将方法论做成可复用-harness)。
 
 ## 核心结构
 
@@ -470,33 +503,34 @@ Homebrew、Docker、Codex plugin、Claude plugin 等其他发布渠道，也只�
 ```
 
 - 宏观方向用 **waterfall 的纪律**控制：计划书、审批、阶段报告、最终验证。
-- 微观执行用 **agile 的快速迭代**推进：让 AI 和即时反馈循环运转，整个周期在**数小时**内完成。
+- 微观执行用 **agile 的快速迭代**推进：在工作允许时，通过 AI 和即时反馈循环让一个 task 周期在数小时内完成。
+- 每个边界都会把重要上下文提炼为产出物，而不是只留在当前会话中。
 
-在这个过程中，所有工作都会文档化，所有决策都会被记录。这就是 Hyper-Waterfall 得以成立的原因。
+每项工作都会成为文档，每项决策都保持可审查，每份文档都会成为后续工作的上下文。
 
 ## 核心原则
 
-> **人绝不停止思考。**
+> **人不会停止思考。会话可以结束，但项目必须记住。**
 
 无论 AI 多么优秀，决定方向和判断质量的都是人。不阅读 AI 输出就接受的瞬间，Hyper-Waterfall 就会退化成 vibe coding。把这个原则落到运营层面，就是下面三点。
 
 ### 1. 人把方向掌握到最后
 
-阶段切换、计划变更、源码修改都需要任务指示者明确批准。AI 是决策的工具，不是决策者。只要开始跳过 gate，方法论就会快速崩塌。
+Stage 切换、计划变更和有意义的源码修改都需要任务指示者明确批准。AI 支持并执行决策，但不拥有决策权。方向、优先级、架构和质量仍是人的责任。
 
 ### 2. 始终给 AI 足够上下文
 
-为了不在每次 prompt 中从头说明任务意图、范围和批准标准，意图和计划被写入 `mydocs/`。模型读取同一个仓库，在同一上下文上工作。如果在上下文分散的状态开始工作，AI 会用猜测填补空白。
+意图、范围、计划、决策和验证标准被写入项目产出物，因此无需在每个 prompt 中从头解释。agent 读取相同的文档化上下文并从同一基线工作。上下文分散或缺失时，AI 会用猜测填补空白。
 
-### 3. 定期外部化 AI 的工作记忆
+### 3. 定期把工作记忆提炼为项目记忆
 
-阶段报告、最终报告、PR 正文会提炼并记录意图、决策、验证依据。聊天上下文会消失，但仓库里的 markdown 会留下；新会话或新贡献者加入时，也能从同一起点开始。
+Stage 报告、最终报告、commit、PR 正文会提炼并记录意图、决策、实现状态和验证依据。对话可能消失，但结构化项目产出物会留下。新会话、agent 和贡献者可以恢复关键上下文，并从文档化基线继续。
 
 ## 角色分工
 
 ### 任务指示者（人）
 
-人专注于**思考**：
+人专注于**思考和判断**：
 
 - 方向设定：“下一步该做什么？”
 - 优先级：“什么更重要？”
@@ -505,22 +539,23 @@ Homebrew、Docker、Codex plugin、Claude plugin 等其他发布渠道，也只�
 - 领域知识：“这个领域里这种情况应该如何表现？”
 - 反馈：“这部分错了，因为……”
 
-### AI 结对程序员
+### AI 编码 Agent
 
-AI 专注于**执行**：
+AI 专注于**执行和结构化上下文记录**：
 
-- 分析：探索代码库、追踪原因
-- 计划：编写实现计划书
+- 分析：探索代码库、追踪根因
+- 计划：草拟 task plan 和 implementation plan
 - 实现：编写代码、生成测试
-- 文档：报告、技术文档、commit message
+- 验证：运行检查、收集依据
+- 文档：Stage 报告、最终报告、技术文档、commit message
 - 调试：分析日志、提出修正方案
 - 迭代：反映反馈、重试
 
 ## Vibe Coding vs Hyper-Waterfall
 
-> Vibe coding — `不阅读 AI 输出就接受，让 AI 做架构决策，部署自己不理解的代码` — 是陷阱。表面上可能能运行，但因为你不理解结果，出问题时无法诊断。
+> Vibe coding——不阅读 AI 输出就接受、让 AI 做架构决策、部署自己不理解的代码——是陷阱。表面上可能运行，但如果结果既不理解也不文档化，诊断和继续工作都会很脆弱。
 >
-> 本项目采取相反方法。人类任务指示者保留方向、质量、架构决策的完整所有权，AI 则以人单独无法达到的速度和规模执行实现。核心差异：**人绝不停止思考。**
+> Hyper-Waterfall 采取相反方法。人类任务指示者保留方向、质量和架构的决策权，AI 快速执行。项目也保存审查和恢复该执行所需的上下文。
 >
 > — [edwardkim/rhwp · Vibe Coding vs AI-Driven Development](https://github.com/edwardkim/rhwp#%EB%B0%94%EC%9D%B4%EB%B8%8C-%EC%BD%94%EB%94%A9-vs-ai-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C)
 
@@ -529,29 +564,32 @@ AI 专注于**执行**：
 | **人的角色** | 接受 AI 输出 | 指示、审查、决定 |
 | **计划** | 无 — “直接做” | 执行计划书 -> 批准 -> 实现计划书 -> Stage 单位执行 |
 | **质量门** | 希望它能工作 | 每个 Stage 验证 + 审批门 + Open PR review |
-| **调试** | 让 AI 修 AI 的 bug | 人诊断，AI 实现 |
-| **架构** | 偶然形成 | 任务指示者有意设计 |
-| **文档** | 无 | `mydocs/`（计划书、阶段报告、最终报告）+ Issue/PR 正文 |
-| 可复现性 | 不可能 | 可追踪完整过程时间线 |
-| **结果物** | 脆弱、难维护 | 可追踪、可交接、可在任何地方恢复 |
+| **项目记忆** | 上下文留在聊天或某个人脑中 | 意图、决策、进度和依据被提炼到项目产出物 |
+| **调试** | 没有持久诊断就让 AI 修 AI 的 bug | 保存诊断和理由，AI 实现已批准修复 |
+| **架构** | 偶然形成 | 由任务指示者有意决定 |
+| **文档** | 缺失或事后补写 | 在 task 全程产生 `mydocs/` 产出物和 Issue/PR 正文 |
+| **交接** | 手动重新说明 | 新会话和贡献者从产出物恢复关键上下文 |
+| **结果物** | 脆弱、难维护 | 可追踪、可审查、可交接、可恢复 |
 
 ## 为什么强大 — AI 让人到达原本到不了的地方
 
-宏观 waterfall 和微观 agile 长期以来是一种 trade-off。重视纪律就会变慢，重视速度就会失去纪律。AI 结对程序员出现后，这个 trade-off 第一次被打破。
+宏观 waterfall 和微观 agile 长期以来是一种 trade-off：纪律使工作变慢，速度又常削弱纪律。AI 编码 agent 降低计划、文档化、实现和验证成本，使两者能在同一工作流中实际并存。
 
 ### 1. 不失去速度，同时恢复纪律
 
-waterfall 变重的一个主要原因是**人必须承担所有文档、计划和验证**。AI 能快速生成这些草案，因此可以同时恢复 waterfall 失去的速度和 agile 失去的纪律。**同样的纪律，100 倍速度** — 这是没有 AI 时到不了的地方。
+waterfall 变重的一个主要原因是**人必须承担所有计划、文档、实现和验证**。AI 可以快速草拟和执行这些工作，让团队在不放弃快速迭代的情况下恢复纪律。
 
-### 2. 知识外部化到仓库，而不是留在脑中
+### 2. 把工作历史变成持久项目记忆
 
-决策、依据、验证结果都会留在 `mydocs/` 和 PR/Issue 中。即使集中在某个人身上的上下文消失，下一个人或下一个 AI 会话也能从**同一起点**开始。agile 的 bus-factor 问题因此被结构性缓解。
+决策、依据、进度、验证结果、反馈和故障排查会留在 `mydocs/`、commit、PR、Issue 中。即使集中在某个人或会话中的上下文消失，下一个人或 AI 会话也能从**同一文档化基线**开始。
+
+这不仅降低 bus-factor 风险，也让积累的工作历史成为未来 task 可复用的上下文。
 
 ### 3. 人专注决策，AI 专注执行
 
 人始终负责方向、优先级、架构和质量，AI 负责探索、实现、测试、文档和反复迭代。一个人的注意力无法覆盖的工作量，会进入一个周期内。**AI 是倍增器**。把它放在好的流程之上，就能得到非凡结果。
 
-### 4. 可以在多个地点移动工作
+### 4. 让工作跨会话、Agent、贡献者和地点移动
 
 [rhwp](https://github.com/edwardkim/rhwp) 的维护者会在办公室、家里、移动中三个地点，用不同的 Claude 会话工作。每个新会话都没有之前的记忆。
 
@@ -565,13 +603,13 @@ waterfall 变重的一个主要原因是**人必须承担所有文档、计划�
 | “为什么用这个方式？” | `feedback/` + `tech/` |
 | “这个坑是什么？” | `troubleshootings/` |
 
-**任务指示者几乎不需要花时间传递上下文。** 这就是为什么可以在三个地点连续工作，也是贡献者加入时同样有效的原因。
+工作本身持续产生交接材料，因此任务指示者手动传递上下文所需的时间大幅减少。
 
 ---
 
-## postmelee/hyper-waterfall：将方法论做成 harness
+## postmelee/hyper-waterfall：将方法论做成可复用 harness
 
-> 本仓库参考 [rhwp](https://github.com/edwardkim/rhwp) 中最初导入的 Hyper-Waterfall 方法论，并做了如下扩展。
+> 本仓库把 [rhwp](https://github.com/edwardkim/rhwp) 中最初引入的 Hyper-Waterfall 方法论扩展为可复用的 multi-agent 工作流 harness。
 
 ### 1. 用一行 prompt 应用到任何仓库 — 模块化 + placeholder 替换
 
@@ -579,21 +617,22 @@ waterfall 变重的一个主要原因是**人必须承担所有文档、计划�
 
 已有应用仓库更新的 lifecycle 基准也整理成独立文档。GitHub Release/tag、manifest、migration guide、`.hyper-waterfall/version.json` 用来先判断当前 version、当前 locale、requested locale 或 switch request、目标 release/tag、目标 release locale support、manifest diff、locale manifest diff、Hyper-Waterfall version update PR 候选。细节见 [`docs/lifecycle/update.zh-CN.md`](docs/lifecycle/update.zh-CN.md) 和 [`docs/lifecycle/update_pr.zh-CN.md`](docs/lifecycle/update_pr.zh-CN.md)。本仓库本身就是把该方法应用到自己的第一个 dogfooding 案例（Issue #1, PR #2）。
 
-### 2. 与官方提示指南对齐
+### 2. 让结构化项目产出物与官方提示指南对齐
 
 工作文档格式被设计为自然满足 [OpenAI](https://developers.openai.com/api/docs/guides/prompt-guidance) 和 [Anthropic](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) 官方提示指南的核心。尤其是 GitHub Issue/PR 模板负责结构化 GitHub 平台产出物，`templates/mydocs/_templates/` 则明确计划书、报告、反馈、外部 PR review 文档的输出格式。
 
 > 在 AI 编写文档、再读取并把文档作为 reference 使用的递归过程中，这能尽量减少回答质量下降。
 
-- 清晰性（Clarity）：任务目标被明确定义。
-- 一致性（Consistency）：所有工作文档拥有相同结构。
-- 分步方式（Step-by-step thinking）：把工作拆成小阶段推进。
-- 上下文（Context）：任务所需信息都包含在文档中。
-- 输出格式约束（Output format）：任务结果按中央模板的特定格式输出。
+- **清晰性**：定义任务目标和边界。
+- **一致性**：重复工作产出物共享中央格式。
+- **分阶段推进**：把工作拆成小而可审查的 Stage。
+- **上下文**：把关键信息记录在未来 agent 可以读取的位置。
+- **输出格式**：把 task 结果变成可预测的项目产出物。
+- **停止条件**：agent 在明确决策边界把控制权交还给人。
 
 详细映射见 [提示指南对齐](#提示指南对齐)。
 
-### 3. Multi-agent 兼容 + 运营规则、SKILL、manual 分离带来的 token/context 效率
+### 3. 用高 token/context 效率的规则支持多个 Agent
 
 rhwp 把运营规则、文档结构、文件夹政策、命名规则、PR 处理都 inline 在一个 `CLAUDE.md` 文件中，且没有 `AGENTS.md`，因此是 Claude Code 专用。本仓库沿两个方向分离和扩展。
 
@@ -607,6 +646,7 @@ rhwp 把运营规则、文档结构、文件夹政策、命名规则、PR 处理
 - **context 效率**：模型只在需要时读取需要的流程。无关流程不会污染上下文。
 - **意图传递清晰**：GitHub 模板和中央模板固定重复产出物结构，分阶段 SKILL 明确流程中何时调用，AI 不需要靠推断重建流程或输出格式。
 - **模型间可移植性**：SKILL 是标准格式，容易移植到其他支持 SKILL 的工具。
+- **共享上下文**：不同 agent 读取相同计划书、报告、决策和验证依据，而不是依赖工具专属聊天记录。
 
 ## 活的示例 — 自己跟着看
 
@@ -621,34 +661,38 @@ rhwp 把运营规则、文档结构、文件夹政策、命名规则、PR 处理
 7. **今日待办** [`mydocs/orders/`](mydocs/orders/) — 日板格式（按 milestone 分表 + 完成时间）
 8. **commit log** [`git log` (main)](https://github.com/postmelee/hyper-waterfall/commits/main) — 从第一个 task commit 到 `pr-merge-cleanup`，12 个 task commit 按时间顺序保留
 
-第一个 task 经历了两次 scope 扩展，并以 5 个阶段推进。也就是说，README 中写的流程如何实际运转 — 审批门、阶段报告、scope 变更处理、PR 正文重写、merge 后清理 — 都可以通过活的产出物跟踪。
+第一个 task 经历了两次 scope 扩展，并以 5 个阶段推进。审批门、Stage 边界的上下文提炼、scope 变更处理、PR 正文重写和 merge 后清理，都可以通过活的产出物查看。
 
 ## 设计原则
 
-- 有意义的源码变更需要人工审批门。
-- Issue 进展追踪委托给 GitHub 的 linked PR 自动 cross-reference、label 和 milestone；评论只用于讨论、blocker、决策记录。
+- 关键任务上下文必须比产生它的会话保留得更久。
+- 结构化项目产出物而不是原始聊天记录，是可恢复工作的 source of truth。
+- 有意义的源码变更需要人的决策门。
+- 任务指示者保留方向、优先级、架构和质量的决策权。
 - 最新状态应该能从 Issue metadata、当前 branch 或 PR、`mydocs/` 找到。
+- Issue 进展追踪委托给 GitHub 的 linked PR 自动 cross-reference、label 和 milestone；评论只用于讨论、blocker、决策记录。
 - 这个框架必须适用于多种项目类型。特定语言、构建、发布、产品规则应放在目标仓库的模板和设置中，而不是 core 中。
 - 对流程严格，对工具灵活。
 
-> Hyper-Waterfall 不是新魔法，而是在 AI 这个倍增器之上，同时保留 waterfall 的纪律和 agile 的速度的运营方式。在好的流程之上，AI 能产出非凡结果。
+> Hyper-Waterfall 不是新魔法。它把 AI 作为倍增器，放在保存人的判断、持久工作历史、验证依据和交接上下文的流程之上。
 
 ## 提示指南对齐
 
-Hyper-Waterfall 在开发流程层面实现了 OpenAI 和 Anthropic 官方提示指南的核心。它不是“如何写好 prompt”，而是创建一种**prompt 自然会被写好的仓库结构**。
+Hyper-Waterfall 在开发流程层面实现 OpenAI 和 Anthropic 官方提示指南的核心。它不只追求一次好的 prompt，而是创建一种**由工作流反复产生良好上下文、清晰输出、验证和停止条件的项目结构**。
 
 ### 对齐摘要
 
 | 原则 | Hyper-Waterfall 中的实现方式 | 效果 |
 |---|---|---|
 | 清晰目标 | GitHub Issue、执行计划书、实现计划书 | AI 先理解工作范围和成功标准。 |
-| 充分上下文 | `mydocs/` 中的计划书、报告、反馈、技术调查 | 新会话也能通过仓库文档恢复上下文。 |
+| 充分上下文 | `mydocs/` 中的计划书、报告、反馈、技术调查 | 新会话从项目产出物恢复关键上下文。 |
 | 输出格式约束 | `mydocs/_templates/`、Issue/PR template | 计划、报告、验证结果每次都按相同结构留下。 |
 | 分阶段推进 | Stage 单位实现、验证、报告 | 复杂工作被拆成可 review 单位。 |
 | 验证标准 | Stage 报告、最终报告、PR 正文 | 结果不是凭感觉判断，而是依据记录的标准。 |
-| 停止条件 | 审批门 | AI 不会任意进入下一阶段。 |
-| 长期工作记忆 | `mydocs/`、commit log、PR timeline | 聊天消失后工作历史仍然保留。 |
+| 停止条件 | 人的决策门 | AI 不会任意进入下一阶段。 |
+| 持久项目记忆 | `mydocs/`、commit history、Issue/PR timeline | 聊天消失后关键工作上下文仍然保留。 |
 | 轻量上下文 | `1 Issue = 1 Task = 1 Branch = 1 Session` | 会话保持小而清晰。 |
+| Multi-agent 连续性 | 共享规则、SKILL、manual 和产出物 | 不同 agent 从同一基线继续工作。 |
 
 <details>
 <summary><strong>OpenAI prompt guidance 映射</strong> · 来源: <a href="https://developers.openai.com/api/docs/guides/prompt-guidance">OpenAI prompt guidance</a></summary>
@@ -694,9 +738,9 @@ Hyper-Waterfall 在开发流程层面实现了 OpenAI 和 Anthropic 官方提示
 6. **Literal 指令遵循与对齐。**
    更 literal 的模型往往更准确地绑定到明确范围。Hyper-Waterfall 先把“源码修改前批准”“未经批准不得进入下一 Stage”“按 Issue 追踪”等边界文档化，因此越 literal 的模型越容易良好运行。
 
-> 但 Hyper-Waterfall 优先考虑的是“人的控制权和可追踪性”，而不是“最大自律性”。它不是与一次性交互式编码 prompt 同层的技巧，而是在更高一层 — task 全体视角的 gate — 上运作。XML tag 结构化没有直接采用；`mydocs/` 文件夹结构、文件名规则、中央模板承担相同作用。
-
-> **一句话总结**：Hyper-Waterfall 不是把 Claude prompting best practices 写成一句 prompt，而是把其核心实现为开发流程 harness。
+> Hyper-Waterfall 优先考虑人的控制权、持久工作历史和可追踪性，而不是最大自律性。它在一次性 interactive coding 之上增加项目级 task 边界和产出物要求。文件夹结构、文件名规则和中央 template 提供跨完整 task 生命周期的结构作用，这不是单靠 inline prompt 格式能完成的。
+>
+> **一句话总结**：Hyper-Waterfall 把 prompting best practices 实现为可重复、由人治理的 AI 编码工作流，而不是一句 prompt。
 
 </details>
 
